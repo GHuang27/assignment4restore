@@ -1,12 +1,17 @@
-import logo from './logo.svg';
+import React, {Component} from 'react';
+import {BrowserRouter as Router} from 'react-router-dom';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <h1>Hello, World!</h1>
-    </div>
-  );
+class App extends Component {
+  render () {
+    return (
+      <Router>
+        <div className="App">
+          Hello, World!
+        </div>
+      </Router>
+    );
+  }
 }
 
 export default App;
