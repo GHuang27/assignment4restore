@@ -13,6 +13,10 @@ const Credits = (props) => {
         <div>
             <h1> Credits </h1>
             {creditsView()}
+            <Link to="/">Home</Link>
+            <Link to="/userProfile">User Profile</Link>
+            <Link to="/login">Login</Link>
+            <Link to="/debits">Debits</Link>
         </div>
 
     )
