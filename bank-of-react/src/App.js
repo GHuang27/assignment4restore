@@ -12,13 +12,13 @@ class App extends Component {
     super(props);
 
     this.state = {
-      accountBalance: 0,
+      accountBalance: 500,
       currentUser: {
         userName: 'Bob',
         memberSince: '07/23/96',
       },
       debits: [],
-      creadits: []
+      credits: []
     }
   }
 
@@ -64,17 +64,19 @@ class App extends Component {
       <UserProfile userName={this.state.currentUser.userName} memberSince={this.state.currentUser.memberSince} />
     );
     const LogInComponent = () => (<LogIn user={this.state.currentUser} mockLogIn={this.mockLogIn} />);
-    const DebitsComponent = () => (<Debits addDebit={this.addDebit} debits={debits} />)
-    const CreditsComponent = () => (<Credits addCredit={this.addCredit} credits={credits} />)
+    console.log(this.state.accountBalance);
+    const DebitsComponent = () => (<Debits addDebit={this.addDebit} debits={debits} accountBalance={this.state.accountBalance}/>)
+    const CreditsComponent = () => (<Credits addCredit={this.addCredit} credits={credits} accountBalance={this.state.accountBalance}/>)
     return (
       <Router>
-        <div>
+        <Switch>
           <Route exact path="/" render={HomeComponent}/>
           <Route exact path="/userProfile" render={UserProfileComponent}/>
           <Route exact path="/login" render={LogInComponent}/>
           <Route exact path="/debits" render={DebitsComponent}/>
           <Route exact path="/credits" render={CreditsComponent}/>
-        </div>
+        </Switch>
+        
       </Router>
     );
   }
