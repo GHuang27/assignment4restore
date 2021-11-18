@@ -2,7 +2,6 @@
     
 import React, { Component } from 'react';
 import AccountBalance from './AccountBalance';
-import LogIn from './Login';
 import {Link} from 'react-router-dom';
     
 class Home extends Component {
@@ -15,6 +14,7 @@ class Home extends Component {
                 <Link to="/userProfile">User Profile</Link>
                 <Link to="/login">Login</Link>
                 <Link to="/debits">Debits</Link>
+                <Link to="/credits">Credits</Link>
                 <AccountBalance accountBalance={this.props.accountBalance}/>
             </div>
         );

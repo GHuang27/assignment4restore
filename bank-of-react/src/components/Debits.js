@@ -1,3 +1,6 @@
+import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
+
 const Debits = (props) => {
     let debitsView = () => {
         const { debits } = props;

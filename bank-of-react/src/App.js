@@ -73,6 +73,7 @@ class App extends Component {
           <Route exact path="/userProfile" render={UserProfileComponent}/>
           <Route exact path="/login" render={LogInComponent}/>
           <Route exact path="/debits" render={DebitsComponent}/>
+          <Route exact path="/credits" render={CreditsComponent}/>
         </div>
       </Router>
     );
