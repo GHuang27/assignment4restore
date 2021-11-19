@@ -50,6 +50,7 @@ class LogIn extends Component {
                     </div>
                     <button>Log In</button>
                 </form>
+                <br />
                 <Link to="/">Home</Link> {' - '}
                 <Link to="/userProfile">User Profile</Link> {' - '}
                 <Link to="/debits">Debits</Link> {' - '}

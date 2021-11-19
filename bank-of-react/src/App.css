@@ -15,6 +15,6 @@ div {
   color: white;
 }
 
-link {
-  color: violet;
+a:link, a:visited {
+  color: greenyellow;
 }

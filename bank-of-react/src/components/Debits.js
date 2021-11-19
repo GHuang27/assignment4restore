@@ -24,6 +24,7 @@ const Debits = (props) => {
         <div>
             <h1> Debits </h1>
             {debitsView()}
+            <br />
             <form onSubmit={handleSubmit}>
                 <label>
                     Debit Name
@@ -36,6 +37,7 @@ const Debits = (props) => {
                 <button>Add</button>
             </form>
             <div>
+                <br />
                 <Link to="/">Home</Link> {' - '}
                 <Link to="/userProfile">User Profile</Link> {' - '}
                 <Link to="/login">Login</Link> {' - '}

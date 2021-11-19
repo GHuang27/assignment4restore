@@ -24,6 +24,7 @@ const Credits = (props) => {
         <div>
             <h1> Credits </h1>
             {creditsView()}
+            <br />
             <form onSubmit={handleSubmit}>
                 <label>
                     Credit Name
@@ -35,6 +36,7 @@ const Credits = (props) => {
                 <input type="text" name="cost" onChange={(e) => updateCost(e.target.value)}/>
                 <button>Add</button>
             </form>
+            <br />
             <Link to="/">Home</Link> {' - '}
             <Link to="/userProfile">User Profile</Link> {' - '}
             <Link to="/login">Login</Link> {' - '}
