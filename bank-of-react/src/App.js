@@ -12,13 +12,18 @@ class App extends Component {
     super(props);
 
     this.state = {
-      accountBalance: 0,
+      accountBalance: 500,
       currentUser: {
         userName: 'Bob',
         memberSince: '07/23/96',
       },
+      newItem: {
+        description: '',
+        amount: 0,
+        date: '',
+      },
       debits: [],
-      creadits: []
+      credits: []
     }
   }
 
@@ -44,10 +49,21 @@ class App extends Component {
   addDebit = (e) => {
     //send to debits view view props
     //updates state based off user input
+    let debits = this.state.debits;
+    let accountBalance = this.state.accountBalance;
+    const tempItem = {...this.state.newItem}
+    const today = new Date();
+    tempItem.id = today.toString().slice(0,36);
+    tempItem.description = e.item
+    tempItem.amount = e.cost
+    tempItem.date = today.getFullYear() + "-" + today.getMonth() + "-" + today.getDate();
+    //tempItem.date = today.toLocaleString().slice(10,0);
+    accountBalance += parseInt(tempItem.amount);
+    debits.push(tempItem);
+    this.setState({debits, accountBalance});
   }
 
   addCredit = (e) => {
-    
   }
 
   mockLogIn = (logInInfo) => {
@@ -64,17 +80,18 @@ class App extends Component {
       <UserProfile userName={this.state.currentUser.userName} memberSince={this.state.currentUser.memberSince} />
     );
     const LogInComponent = () => (<LogIn user={this.state.currentUser} mockLogIn={this.mockLogIn} />);
-    const DebitsComponent = () => (<Debits addDebit={this.addDebit} debits={debits} />)
-    const CreditsComponent = () => (<Credits addCredit={this.addCredit} credits={credits} />)
+    const DebitsComponent = () => (<Debits addDebit={this.addDebit} debits={debits} accountBalance={this.state.accountBalance}/>)
+    const CreditsComponent = () => (<Credits addCredit={this.addCredit} credits={credits} accountBalance={this.state.accountBalance}/>)
     return (
       <Router>
-        <div>
+        <Switch>
           <Route exact path="/" render={HomeComponent}/>
           <Route exact path="/userProfile" render={UserProfileComponent}/>
           <Route exact path="/login" render={LogInComponent}/>
           <Route exact path="/debits" render={DebitsComponent}/>
           <Route exact path="/credits" render={CreditsComponent}/>
-        </div>
+        </Switch>
+        
       </Router>
     );
   }
