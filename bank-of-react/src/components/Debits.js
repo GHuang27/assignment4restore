@@ -11,15 +11,22 @@ const Debits = (props) => {
         const { debits } = props;
         return debits.map((debit) => {
             let date = debit.date.slice(0,10);
+            console.log(debit);
             return <li key={debit.id}>{debit.amount} {debit.description} {date}</li>
         })
     }
 
     const handleSubmit = (e) =>  {
         e.preventDefault();
-        //const newDebit = {title, body, author}
-        //props.item = item;
-        //props.value = value;
+        const today = new Date();
+        const now = today.toLocaleString().slice(0,10);
+        console.log("Printing date");
+        console.log(now);
+        const newDebit = {item, cost, now};
+        console.log("Printing newDebit");
+        console.log(newDebit);
+        props.addDebit(newDebit)
+        console.log("NEW SUBMISSION");
     }
 
     return (
@@ -46,10 +53,6 @@ const Debits = (props) => {
                 <Link to="/credits">Credits</Link>
                 <AccountBalance accountBalance={props.accountBalance}/>
             </div>
-            <p>
-                { item }
-                { cost }    
-            </p>
         </div>
     )
 }
