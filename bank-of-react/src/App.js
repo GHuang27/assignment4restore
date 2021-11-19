@@ -56,7 +56,8 @@ class App extends Component {
     tempItem.id = today.toString().slice(0,36);
     tempItem.description = e.item
     tempItem.amount = e.cost
-    tempItem.date = today.toLocaleString().slice(0,10);
+    tempItem.date = today.getFullYear() + "-" + today.getMonth() + "-" + today.getDate();
+    //tempItem.date = today.toLocaleString().slice(10,0);
     accountBalance += parseInt(tempItem.amount);
     debits.push(tempItem);
     this.setState({debits, accountBalance});

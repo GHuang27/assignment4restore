@@ -1,7 +1,6 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import AccountBalance from './AccountBalance';
-import {useState} from 'react';
 
 const Debits = (props) => {
     const [item, updateName] = useState('');
