@@ -18,7 +18,6 @@ const Debits = (props) => {
         e.preventDefault();
         const newDebit = {item, cost};
         props.addDebit(newDebit)
-        e.target.reset();
     }
 
     return (

@@ -47,8 +47,6 @@ class App extends Component {
   }
 
   addDebit = (e) => {
-    //send to debits view view props
-    //updates state based off user input
     let debits = this.state.debits;
     let accountBalance = this.state.accountBalance;
     const tempItem = {...this.state.newItem}
@@ -57,13 +55,23 @@ class App extends Component {
     tempItem.description = e.item
     tempItem.amount = e.cost
     tempItem.date = today.getFullYear() + "-" + today.getMonth() + "-" + today.getDate();
-    //tempItem.date = today.toLocaleString().slice(10,0);
-    accountBalance += parseInt(tempItem.amount);
+    accountBalance -= parseInt(tempItem.amount);
     debits.push(tempItem);
     this.setState({debits, accountBalance});
   }
 
   addCredit = (e) => {
+    let credits = this.state.credits;
+    let accountBalance = this.state.accountBalance;
+    const tempItem = {...this.state.newItem}
+    const today = new Date();
+    tempItem.id = today.toString().slice(0,36);
+    tempItem.description = e.item
+    tempItem.amount = e.cost
+    tempItem.date = today.getFullYear() + "-" + today.getMonth() + "-" + today.getDate();
+    accountBalance += parseInt(tempItem.amount);
+    credits.push(tempItem);
+    this.setState({credits, accountBalance});
   }
 
   mockLogIn = (logInInfo) => {

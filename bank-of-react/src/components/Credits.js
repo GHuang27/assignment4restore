@@ -16,9 +16,8 @@ const Credits = (props) => {
 
     const handleSubmit = (e) =>  {
         e.preventDefault();
-        const newDebit = {item, cost};
-        props.addDebit(newDebit)
-        e.target.reset();
+        const newCredit = {item, cost};
+        props.addCredit(newCredit)
     }
 
     return (
