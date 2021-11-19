@@ -42,8 +42,6 @@ const Credits = (props) => {
             <Link to="/login">Login</Link> {' - '}
             <Link to="/debits">Debits</Link>
             <AccountBalance accountBalance={props.accountBalance}/>
-            <p>{ item }</p>
-            <p>{ cost }</p>
         </div>
     )
 }
