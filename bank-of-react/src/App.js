@@ -56,7 +56,7 @@ class App extends Component {
     tempItem.description = e.item
     tempItem.amount = e.cost
     tempItem.date = today.getFullYear() + "-" + today.getMonth() + "-" + today.getDate();
-    accountBalance -= parseInt(tempItem.amount);
+    accountBalance -= parseFloat(tempItem.amount);
     debits.push(tempItem);
     this.setState({debits, accountBalance});
   }
@@ -70,7 +70,7 @@ class App extends Component {
     tempItem.description = e.item
     tempItem.amount = e.cost
     tempItem.date = today.getFullYear() + "-" + today.getMonth() + "-" + today.getDate();
-    accountBalance += parseInt(tempItem.amount);
+    accountBalance += parseFloat(tempItem.amount);
     credits.push(tempItem);
     this.setState({credits, accountBalance});
   }
