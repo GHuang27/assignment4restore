@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom';
 import AccountBalance from './AccountBalance';
 import {useState} from 'react';
@@ -19,6 +19,7 @@ const Debits = (props) => {
         e.preventDefault();
         const newDebit = {item, cost};
         props.addDebit(newDebit)
+        e.target.reset();
     }
 
     return (
