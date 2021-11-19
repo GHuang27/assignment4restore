@@ -1,8 +1,12 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import AccountBalance from './AccountBalance';
+import {useState} from 'react';
 
 const Debits = (props) => {
+    const [item, updateName] = useState('');
+    const [cost, updateCost] = useState('');
+
     let debitsView = () => {
         const { debits } = props;
         return debits.map((debit) => {
@@ -10,20 +14,30 @@ const Debits = (props) => {
             return <li key={debit.id}>{debit.amount} {debit.description} {date}</li>
         })
     }
+
+    const handleSubmit = (e) =>  {
+        e.preventDefault();
+        //const newDebit = {title, body, author}
+        //props.item = item;
+        //props.value = value;
+    }
+
     return (
+        //item
+        //cost
         <div>
             <h1> Debits </h1>
             {debitsView()}
-            <form >
-                <div>
-                    <label htmlFor="item">Debit Name</label>
-                    <input type="text" name="item" />
-                </div>
-                <div>
-                    <label htmlFor="cost">Value</label>
-                    <input type="password" name="cost" />
-                </div>
-                <button>Log In</button>
+            <form onSubmit={handleSubmit}>
+                <label>
+                    Debit Name
+                </label>
+                <input type="text" name="item" onChange={(e) => updateName(e.target.value)}/>
+                <label>
+                    Amount
+                </label>
+                <input type="text" name="cost" onChange={(e) => updateCost(e.target.value)}/>
+                <button>Add</button>
             </form>
             <div>
                 <Link to="/">Home</Link>
@@ -32,6 +46,10 @@ const Debits = (props) => {
                 <Link to="/credits">Credits</Link>
                 <AccountBalance accountBalance={props.accountBalance}/>
             </div>
+            <p>
+                { item }
+                { cost }    
+            </p>
         </div>
     )
 }
