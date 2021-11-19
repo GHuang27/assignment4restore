@@ -18,15 +18,8 @@ const Debits = (props) => {
 
     const handleSubmit = (e) =>  {
         e.preventDefault();
-        const today = new Date();
-        const now = today.toLocaleString().slice(0,10);
-        console.log("Printing date");
-        console.log(now);
-        const newDebit = {item, cost, now};
-        console.log("Printing newDebit");
-        console.log(newDebit);
+        const newDebit = {item, cost};
         props.addDebit(newDebit)
-        console.log("NEW SUBMISSION");
     }
 
     return (
