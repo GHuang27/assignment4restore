@@ -53,11 +53,10 @@ class App extends Component {
     let accountBalance = this.state.accountBalance;
     const tempItem = {...this.state.newItem}
     const today = new Date();
-    const now = today.toLocaleString().slice(0,10);
     tempItem.id = today.toString().slice(0,36);
     tempItem.description = e.item
     tempItem.amount = e.cost
-    tempItem.date = now
+    tempItem.date = today.toLocaleString().slice(0,10);
     accountBalance += parseInt(tempItem.amount);
     debits.push(tempItem);
     this.setState({debits, accountBalance});

@@ -11,7 +11,6 @@ const Debits = (props) => {
         const { debits } = props;
         return debits.map((debit) => {
             let date = debit.date.slice(0,10);
-            console.log(debit);
             return <li key={debit.id}>{debit.amount} {debit.description} {date}</li>
         })
     }
@@ -23,8 +22,6 @@ const Debits = (props) => {
     }
 
     return (
-        //item
-        //cost
         <div>
             <h1> Debits </h1>
             {debitsView()}
