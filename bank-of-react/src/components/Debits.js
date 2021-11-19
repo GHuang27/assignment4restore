@@ -18,13 +18,13 @@ const Debits = (props) => {
         e.preventDefault();
         const newDebit = {item, cost};
         props.addDebit(newDebit)
-        e.target.reset();
     }
 
     return (
         <div>
             <h1> Debits </h1>
             {debitsView()}
+            <br />
             <form onSubmit={handleSubmit}>
                 <label>
                     Debit Name
@@ -37,9 +37,10 @@ const Debits = (props) => {
                 <button>Add</button>
             </form>
             <div>
-                <Link to="/">Home</Link>
-                <Link to="/userProfile">User Profile</Link>
-                <Link to="/login">Login</Link>
+                <br />
+                <Link to="/">Home</Link> {' - '}
+                <Link to="/userProfile">User Profile</Link> {' - '}
+                <Link to="/login">Login</Link> {' - '}
                 <Link to="/credits">Credits</Link>
                 <AccountBalance accountBalance={props.accountBalance}/>
             </div>

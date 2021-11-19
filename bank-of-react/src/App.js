@@ -1,3 +1,4 @@
+import './App.css';
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Home from './components/Home';
@@ -47,8 +48,6 @@ class App extends Component {
   }
 
   addDebit = (e) => {
-    //send to debits view view props
-    //updates state based off user input
     let debits = this.state.debits;
     let accountBalance = this.state.accountBalance;
     const tempItem = {...this.state.newItem}
@@ -57,13 +56,23 @@ class App extends Component {
     tempItem.description = e.item
     tempItem.amount = e.cost
     tempItem.date = today.getFullYear() + "-" + today.getMonth() + "-" + today.getDate();
-    //tempItem.date = today.toLocaleString().slice(10,0);
-    accountBalance += parseInt(tempItem.amount);
+    accountBalance -= parseInt(tempItem.amount);
     debits.push(tempItem);
     this.setState({debits, accountBalance});
   }
 
   addCredit = (e) => {
+    let credits = this.state.credits;
+    let accountBalance = this.state.accountBalance;
+    const tempItem = {...this.state.newItem}
+    const today = new Date();
+    tempItem.id = today.toString().slice(0,36);
+    tempItem.description = e.item
+    tempItem.amount = e.cost
+    tempItem.date = today.getFullYear() + "-" + today.getMonth() + "-" + today.getDate();
+    accountBalance += parseInt(tempItem.amount);
+    credits.push(tempItem);
+    this.setState({credits, accountBalance});
   }
 
   mockLogIn = (logInInfo) => {
@@ -77,9 +86,9 @@ class App extends Component {
     const { credits } = this.state;
     const HomeComponent = () => (<Home accountBalance={this.state.accountBalance}/>);
     const UserProfileComponent = () => (
-      <UserProfile userName={this.state.currentUser.userName} memberSince={this.state.currentUser.memberSince} />
+      <UserProfile userName={this.state.currentUser.userName} memberSince={this.state.currentUser.memberSince} accountBalance={this.state.accountBalance} />
     );
-    const LogInComponent = () => (<LogIn user={this.state.currentUser} mockLogIn={this.mockLogIn} />);
+    const LogInComponent = () => (<LogIn user={this.state.currentUser} mockLogIn={this.mockLogIn} accountBalance={this.state.accountBalance} />);
     const DebitsComponent = () => (<Debits addDebit={this.addDebit} debits={debits} accountBalance={this.state.accountBalance}/>)
     const CreditsComponent = () => (<Credits addCredit={this.addCredit} credits={credits} accountBalance={this.state.accountBalance}/>)
     return (
