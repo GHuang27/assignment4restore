@@ -1,5 +1,6 @@
-import React, {Component} from 'react';
+import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
+import AccountBalance from './AccountBalance';
 
 const Credits = (props) => {
     let creditsView = () => {
@@ -17,6 +18,7 @@ const Credits = (props) => {
             <Link to="/userProfile">User Profile</Link>
             <Link to="/login">Login</Link>
             <Link to="/debits">Debits</Link>
+            <AccountBalance accountBalance={props.accountBalance}/>
         </div>
 
     )
