@@ -50,21 +50,20 @@ class App extends Component {
     //send to debits view view props
     //updates state based off user input
     let debits = this.state.debits;
+    let accountBalance = this.state.accountBalance;
     const tempItem = {...this.state.newItem}
-    tempItem.description = e.item
-    tempItem.amount = e.cost
     const today = new Date();
     const now = today.toLocaleString().slice(0,10);
+    tempItem.id = today.toString().slice(0,36);
+    tempItem.description = e.item
+    tempItem.amount = e.cost
     tempItem.date = now
+    accountBalance += parseInt(tempItem.amount);
     debits.push(tempItem);
-    console.log("HI");
-    console.log(tempItem);
-    this.setState({debits});
-    console.log("BOOM");
+    this.setState({debits, accountBalance});
   }
 
   addCredit = (e) => {
-    
   }
 
   mockLogIn = (logInInfo) => {
@@ -83,7 +82,6 @@ class App extends Component {
     const LogInComponent = () => (<LogIn user={this.state.currentUser} mockLogIn={this.mockLogIn} />);
     const DebitsComponent = () => (<Debits addDebit={this.addDebit} debits={debits} accountBalance={this.state.accountBalance}/>)
     const CreditsComponent = () => (<Credits addCredit={this.addCredit} credits={credits} accountBalance={this.state.accountBalance}/>)
-    console.log(this.state.debits.length);
     return (
       <Router>
         <Switch>
