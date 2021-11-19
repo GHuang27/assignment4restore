@@ -1,6 +1,8 @@
 // Login.js
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
+import {Link} from 'react-router-dom';
+import AccountBalance from './AccountBalance';
 
 class LogIn extends Component {
     constructor () {
@@ -36,6 +38,7 @@ class LogIn extends Component {
 
         return (
             <div>
+                <h1>Log In</h1>
                 <form onSubmit={this.handleSubmit}>
                     <div>
                         <label htmlFor="userName">User Name</label>
@@ -47,6 +50,11 @@ class LogIn extends Component {
                     </div>
                     <button>Log In</button>
                 </form>
+                <Link to="/">Home</Link> {' - '}
+                <Link to="/userProfile">User Profile</Link> {' - '}
+                <Link to="/debits">Debits</Link> {' - '}
+                <Link to="/credits">Credits</Link>
+                <AccountBalance accountBalance={this.props.accountBalance}/>
             </div>
         )
     }

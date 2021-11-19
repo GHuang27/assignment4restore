@@ -36,9 +36,9 @@ const Debits = (props) => {
                 <button>Add</button>
             </form>
             <div>
-                <Link to="/">Home</Link>
-                <Link to="/userProfile">User Profile</Link>
-                <Link to="/login">Login</Link>
+                <Link to="/">Home</Link> {' - '}
+                <Link to="/userProfile">User Profile</Link> {' - '}
+                <Link to="/login">Login</Link> {' - '}
                 <Link to="/credits">Credits</Link>
                 <AccountBalance accountBalance={props.accountBalance}/>
             </div>

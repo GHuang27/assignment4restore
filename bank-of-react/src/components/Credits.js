@@ -35,9 +35,9 @@ const Credits = (props) => {
                 <input type="text" name="cost" onChange={(e) => updateCost(e.target.value)}/>
                 <button>Add</button>
             </form>
-            <Link to="/">Home</Link>
-            <Link to="/userProfile">User Profile</Link>
-            <Link to="/login">Login</Link>
+            <Link to="/">Home</Link> {' - '}
+            <Link to="/userProfile">User Profile</Link> {' - '}
+            <Link to="/login">Login</Link> {' - '}
             <Link to="/debits">Debits</Link>
             <AccountBalance accountBalance={props.accountBalance}/>
             <p>{ item }</p>
