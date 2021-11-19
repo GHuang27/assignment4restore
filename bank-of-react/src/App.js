@@ -17,6 +17,8 @@ class App extends Component {
         userName: 'Bob',
         memberSince: '07/23/96',
       },
+      item: '',
+      cost: 0,
       debits: [],
       credits: []
     }
@@ -44,6 +46,13 @@ class App extends Component {
   addDebit = (e) => {
     //send to debits view view props
     //updates state based off user input
+    let debits = this.debits;
+    let today = new Date();
+    let now = today.toLocaleString();
+    //let temp = {amount: this.cost, description: this.item, date:now};
+    let temp = {amount: 50, description: 'this', date:now};
+    debits.push(temp);
+    this.setState({debits})
   }
 
   addCredit = (e) => {

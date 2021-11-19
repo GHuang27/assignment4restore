@@ -14,7 +14,17 @@ const Debits = (props) => {
         <div>
             <h1> Debits </h1>
             {debitsView()}
-            
+            <form >
+                <div>
+                    <label htmlFor="item">Debit Name</label>
+                    <input type="text" name="item" />
+                </div>
+                <div>
+                    <label htmlFor="cost">Value</label>
+                    <input type="password" name="cost" />
+                </div>
+                <button>Log In</button>
+            </form>
             <div>
                 <Link to="/">Home</Link>
                 <Link to="/userProfile">User Profile</Link>
