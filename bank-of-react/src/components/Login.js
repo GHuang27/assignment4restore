@@ -1,6 +1,6 @@
 // Login.js
-import React, { Component } from 'react'
-import { Redirect } from 'react-router-dom'
+import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import {Link} from 'react-router-dom';
 import AccountBalance from './AccountBalance';
 
